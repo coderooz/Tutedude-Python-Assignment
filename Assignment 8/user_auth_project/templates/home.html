@@ -1,0 +1,23 @@
+<!-- home.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ title|default:"Home" }}{% endblock %}
+{% block description %}
+    <meta name="description" content="{{ desc|default:'Welcome to the user authentication project home page.' }}">
+{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Welcome to the Home Page</h2>
+    <p>This is a simple home page for our user authentication project.</p>
+    <p>You can navigate to other pages using the links in the navigation bar.</p>
+    <div style="margin-top: 20px;">
+        <a style="margin-right: 10px;" href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        <a style="margin-right: 10px;" href="{% url 'register' %}" class="btn btn-secondary">Register</a>
+        <a style="margin-right: 10px;" href="{% url 'dashboard' %}" class="btn btn-info">Dashboard</a>
+    </div>
+</div>
+{% endblock %}

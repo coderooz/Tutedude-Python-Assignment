@@ -1,0 +1,4 @@
+<h2>Dashboard</h2>
+<p>Welcome, {{ request.user.username }}!</p>
+<a href="{% url 'logout' %}">Logout</a>
+<p>Go back to <a href="{% url 'home' %}">Home</a></p>
