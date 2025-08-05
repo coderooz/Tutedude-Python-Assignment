@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ post.title }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+  <div class="container mx-auto px-4 py-8">
+    <a href="{% url 'home' %}" class="text-blue-600 hover:underline mb-4 inline-block">← Back to Home</a>
+    
+    <article class="bg-white p-8 rounded-lg shadow-lg">
+      <h2 class="text-3xl font-bold mb-4">{{ post.title }}</h2>
+      <p class="text-sm text-gray-500 mb-6">Published on {{ post.created_at|date:"F d, Y" }}</p>
+      <div class="prose max-w-full">
+        {{ post.content|linebreaks }}
+      </div>
+    </article>
+  </div>
+</body>
+</html>

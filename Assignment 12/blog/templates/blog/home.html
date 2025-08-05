@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+  <div class="container mx-auto px-4 py-8">
+    <header class="flex justify-between items-center mb-10">
+      <h1 class="text-4xl font-bold">📚 My Blog</h1>
+      <a href="{% url 'create_post' %}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow">
+        + New Post
+      </a>
+    </header>
+
+    <div class="grid gap-6">
+      {% for post in posts %}
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+        <a href="{% url 'post_detail' post.pk %}" class="text-2xl font-semibold text-blue-700 hover:underline">
+          {{ post.title }}
+        </a>
+        <p class="text-sm text-gray-500 mt-1">Posted on {{ post.created_at|date:"F d, Y" }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
